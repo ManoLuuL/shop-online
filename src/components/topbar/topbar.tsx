@@ -49,7 +49,7 @@ export const Topbar = () => {
       <div className={twMerge("col-span-2 justify-end relative flex")}>
         {IconCart}
         {totalItems > 0 && (
-          <div className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full max-h-4 text-[10px] w-4 flex items-center justify-center">
+          <div className="absolute -top-2 -right-1 bg-red-500 text-white rounded-full max-h-4 text-[10px] w-4 flex items-center justify-center">
             <span>{totalItems}</span>
           </div>
         )}
