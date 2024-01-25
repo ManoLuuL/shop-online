@@ -20,7 +20,7 @@ export const Card = (props: CardProps) => {
     <div
       className={twMerge(
         "flex justify-center flex-col items-center w-full aspect-square",
-        "bg-gray-400 rounded-md hover:scale-105"
+        "bg-gray-500 rounded-md hover:scale-105"
       )}
     >
       <div className={twMerge("flex justify-center w-full")}>
