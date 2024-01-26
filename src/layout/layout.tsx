@@ -18,7 +18,7 @@ export const Layout = (props: LayoutProps) => {
       <Topbar />
 
       <main
-        className="overflow-x-hidden overflow-y-auto bg-gray-400 block w-full transition duration-200"
+        className="overflow-x-hidden overflow-y-auto bg-gray-100 block w-full transition duration-200 text-gray-700"
         style={{
           gridArea: "content",
         }}

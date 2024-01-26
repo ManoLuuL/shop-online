@@ -1,14 +1,13 @@
-import { CardProps } from "./types";
-import { IconAddCart } from "../../globals";
+import { IconArrow, StarIcon } from "../../globals";
+
+import { CardProductProps } from "./types";
 import { twMerge } from "tailwind-merge";
 import { useCart } from "../../globals/hooks/use-cart-context";
-import { useNavigate } from "react-router-dom";
 
-export const CardProduct = (props: CardProps) => {
-  const { description, price, src, title } = props;
+export const CardProduct = (props: CardProductProps) => {
+  const { description, price, src, title, onClickViewMore } = props;
 
   const { addToCart } = useCart();
-  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     addToCart({
@@ -19,42 +18,44 @@ export const CardProduct = (props: CardProps) => {
   };
 
   return (
-    <div
-      className={twMerge(
-        "flex justify-center flex-col items-center w-full aspect-square",
-        "bg-gray-500 rounded-md hover:scale-105"
-      )}
-    >
-      <div className={twMerge("flex justify-center w-full")}>
-        <img
-          alt={title}
-          className={twMerge(
-            "rounded-lg mb-1 object-contain mt-1 w-1/2 aspect-square"
-          )}
-          src={src}
-        />
-      </div>
+    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden bg-slate-50">
       <div
-        className={twMerge(
-          "flex flex-col items-center w-full",
-          "cursor-pointer",
-          "hover:scale-110"
-        )}
-        onClick={() => navigate("/")}
+        className="flex items-end justify-end h-56 w-full bg-cover"
+        style={{
+          backgroundImage: `url(${src})`,
+        }}
       >
-        <h2 className={twMerge("font-semibold text-xl")}>{title}</h2>
-        <p className={twMerge("flex w-3/4 justify-center")}>{description}</p>
-      </div>
-
-      <div className={twMerge("flex justify-around w-full p-3")}>
-        <p className={twMerge("font-semibold text-2xl")}>Price: ${price}</p>
-
         <button
-          onClick={handleAddToCart}
-          className={twMerge("hover:scale-110")}
+          className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+          onClick={onClickViewMore}
         >
-          {IconAddCart(30)}
+          {IconArrow}
         </button>
+      </div>
+      <div className="px-5 py-3">
+        <h3 className="text-gray-700 uppercase">{title}</h3>
+        <div className="flex items-center gap-0.5 mt-2 mb-2">
+          <StarIcon className="w-5 h-5 fill-black" />
+          <StarIcon className="w-5 h-5 fill-black" />
+          <StarIcon className="w-5 h-5 fill-black" />
+          <StarIcon className="w-5 h-5 fill-black" />
+          <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
+          <span className="text-gray-500 ml-2">34 reviews</span>
+        </div>
+        <p className="text-gray-700">{description}</p>
+        <div className="mt-3 flex items-center justify-between">
+          <span className="text-gray-500 mr-4 font-semibold text-xl">
+            $ {price}
+          </span>
+          <button
+            className={twMerge(
+              "px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+            )}
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );

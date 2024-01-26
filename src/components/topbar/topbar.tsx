@@ -14,7 +14,7 @@ export const Topbar = () => {
       className={twMerge(
         "grid grid-cols-12 gap-4 items-center  overflow-hidden w-full h-full overflow-x-auto overflow-y-auto z-[1]",
         "border-b-2  border-solid px-3 transition duration-200",
-        "border-gray-100 bg-gray-700"
+        "border-gray-100 bg-blue-700"
       )}
     >
       <div className={twMerge("col-span-2")}>

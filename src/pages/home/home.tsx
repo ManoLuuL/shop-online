@@ -3,14 +3,23 @@ import { CustomerReviews } from "./components";
 import { PRODUCTS_DESTACT } from "./const";
 import { Teste } from "../../assets";
 import { twMerge } from "tailwind-merge";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
-  const ProductsCard = PRODUCTS_DESTACT.map((items, index) => {
-    return <CardProduct {...items} key={`${items.title}-${index}`} />;
+  const navigate = useNavigate();
+
+  const ProductsCard = PRODUCTS_DESTACT.map((items) => {
+    return (
+      <CardProduct
+        {...items}
+        key={items.id}
+        onClickViewMore={() => navigate("/products")}
+      />
+    );
   });
 
   return (
-    <div className={twMerge("bg-gray-400 h-screen")}>
+    <div className={twMerge(" h-full")}>
       <section
         className={twMerge("relative h-[500px] md:h-[600px] lg:h-[700px]")}
       >
@@ -37,7 +46,7 @@ export const Home = () => {
             </p>
             <a
               className={twMerge(
-                "inline-flex items-center justify-center h-10 px-6 text-sm font-medium text-white bg-gray-900 rounded-md hover:bg-gray-800"
+                "inline-flex items-center justify-center h-10 px-6 text-sm font-medium text-white bg-blue-700 rounded-md hover:bg-gray-800"
               )}
               href="/products"
             >
@@ -46,19 +55,21 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="px-4 md:px-6 flex justify-center flex-col items-center">
+      <section className="w-full py-12 md:py-24 lg:py-32 flex bg-blue-300">
+        <div className="px-4 md:px-6 w-full text-center">
           <h2 className={twMerge("text-2xl font-semibold mb-6")}>
             Featured Products
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-[90%]">
-            {ProductsCard}
+          <div className="flex justify-center items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-[90%]">
+              {ProductsCard}
+            </div>
           </div>
         </div>
       </section>
 
       <CustomerReviews />
-      <section className={twMerge("p-6")}>
+      <section className={twMerge("p-6 bg-blue-300")}>
         <h2
           className={twMerge("text-2xl font-semibold mb-6 flex justify-center")}
         >
