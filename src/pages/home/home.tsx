@@ -69,13 +69,93 @@ export const Home = () => {
       </section>
 
       <CustomerReviews />
-      <section className={twMerge("p-6 bg-blue-300")}>
+      {/* <section className={twMerge("p-6 bg-blue-300")}>
         <h2
           className={twMerge("text-2xl font-semibold mb-6 flex justify-center")}
         >
           Contact
         </h2>
         <div>bla bla bla</div>
+      </section> */}
+      <section className="p-6 bg-blue-300">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-semibold mb-8">Entre em Contato</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <form>
+                <div className="mb-4">
+                  <label
+                    htmlFor="nome"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Nome
+                  </label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    className="mt-1 p-2 w-full border rounded-md"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    E-mail
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="mt-1 p-2 w-full border rounded-md"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="mensagem"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Mensagem
+                  </label>
+                  <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows={4}
+                    className="mt-1 p-2 w-full border rounded-md"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                >
+                  Enviar Mensagem
+                </button>
+              </form>
+            </div>
+
+            <div>
+              <div className="mb-4">
+                <h3 className="text-xl font-semibold mb-2">
+                  Informações de Contato
+                </h3>
+                <p className="text-gray-600">
+                  Estamos sempre disponíveis para ajudar. Entre em contato
+                  conosco se tiver alguma dúvida.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Nosso Endereço</h3>
+                <p className="text-gray-600">
+                  Rua Exemplo, 123 <br />
+                  Cidade, Estado <br />
+                  CEP: 12345-678
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

@@ -18,7 +18,7 @@ export const CardProduct = (props: CardProductProps) => {
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden bg-slate-50">
+    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden bg-slate-50 hover:scale-110 transition duration-200">
       <div
         className="flex items-end justify-end h-56 w-full bg-cover"
         style={{
