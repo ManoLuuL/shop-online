@@ -1,11 +1,14 @@
 import { CartContextProps, CartContextProvider, CartItem } from "./types";
 import { createContext, useState } from "react";
 
+import { useToast } from "../hooks";
+
 const CartContext = createContext({} as CartContextProps);
 
 export const CartProvider = (props: CartContextProvider) => {
   const { children } = props;
 
+  const { showSuccess } = useToast();
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
@@ -24,6 +27,7 @@ export const CartProvider = (props: CartContextProvider) => {
         return [...prevCart, item];
       }
     });
+    showSuccess("Adicionado com sucesso!");
   };
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
