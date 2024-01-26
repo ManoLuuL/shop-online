@@ -1,11 +1,12 @@
-import { Card } from "../../components";
+import { CardProduct } from "../../components";
+import { CustomerReviews } from "./components";
 import { PRODUCTS_DESTACT } from "./const";
 import { Teste } from "../../assets";
 import { twMerge } from "tailwind-merge";
 
 export const Home = () => {
   const ProductsCard = PRODUCTS_DESTACT.map((items, index) => {
-    return <Card {...items} key={`${items.title}-${index}`} />;
+    return <CardProduct {...items} key={`${items.title}-${index}`} />;
   });
 
   return (
@@ -56,28 +57,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
-        <div className="container px-4 md:px-6">
-          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-gray-700">
-            Customer Reviews
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-            <div
-              className="rounded-lg border bg-card text-card-foreground shadow-sm"
-              data-v0-t="card"
-            >
-              <div className="p-6">
-                <p className="text-sm text-gray-700">
-                  "Great products and fast shipping. I'm very satisfied."
-                </p>
-                <p className="text-sm font-bold mt-2 text-gray-700">
-                  - John Doe
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CustomerReviews />
       <section className={twMerge("p-6")}>
         <h2
           className={twMerge("text-2xl font-semibold mb-6 flex justify-center")}

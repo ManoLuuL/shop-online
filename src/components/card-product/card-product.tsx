@@ -3,7 +3,7 @@ import { IconAddCart } from "../../globals";
 import { twMerge } from "tailwind-merge";
 import { useCart } from "../../globals/hooks/use-cart-context";
 
-export const Card = (props: CardProps) => {
+export const CardProduct = (props: CardProps) => {
   const { description, price, src, title } = props;
 
   const { addToCart } = useCart();
@@ -27,7 +27,7 @@ export const Card = (props: CardProps) => {
         <img
           alt={title}
           className={twMerge(
-            "rounded-lg mb-4 object-cover mt-4 w-1/2 aspect-square"
+            "rounded-lg mb-1 object-contain mt-1 w-1/2 aspect-square"
           )}
           src={src}
         />

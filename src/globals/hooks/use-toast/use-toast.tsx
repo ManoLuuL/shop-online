@@ -8,12 +8,11 @@ export const useToast = () => {
     () => ({
       position: "top-right",
       theme: "light",
-      draggable: true,
-      closeOnClick: true,
       draggableDirection: "x",
+      closeOnClick: true,
+      draggable: true,
       pauseOnHover: true,
       pauseOnFocusLoss: true,
-
       style: {
         zIndex: 20000,
       },

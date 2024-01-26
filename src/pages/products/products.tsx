@@ -1,10 +1,10 @@
 import { ALL_PRODUCTS } from "./const";
-import { Card } from "../../components";
+import { CardProduct } from "../../components";
 import { twMerge } from "tailwind-merge";
 
 export const Products = () => {
   const ProductsCard = ALL_PRODUCTS.map((items, index) => {
-    return <Card {...items} key={`${items.title}-${index}`} />;
+    return <CardProduct {...items} key={`${items.title}-${index}`} />;
   });
 
   return (
