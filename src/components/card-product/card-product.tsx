@@ -2,11 +2,13 @@ import { CardProps } from "./types";
 import { IconAddCart } from "../../globals";
 import { twMerge } from "tailwind-merge";
 import { useCart } from "../../globals/hooks/use-cart-context";
+import { useNavigate } from "react-router-dom";
 
 export const CardProduct = (props: CardProps) => {
   const { description, price, src, title } = props;
 
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     addToCart({
@@ -32,20 +34,27 @@ export const CardProduct = (props: CardProps) => {
           src={src}
         />
       </div>
-      <div className={twMerge("flex flex-col items-center w-full")}>
+      <div
+        className={twMerge(
+          "flex flex-col items-center w-full",
+          "cursor-pointer",
+          "hover:scale-110"
+        )}
+        onClick={() => navigate("/")}
+      >
         <h2 className={twMerge("font-semibold text-xl")}>{title}</h2>
         <p className={twMerge("flex w-3/4 justify-center")}>{description}</p>
       </div>
-      <div
-        className={twMerge(
-          "flex justify-center w-full mt-2 font-semibold text-lg"
-        )}
-      >
-        <p>Price: ${price}</p>
-      </div>
+
       <div className={twMerge("flex justify-around w-full p-3")}>
-        <button>Quick View</button>
-        <button onClick={handleAddToCart}>{IconAddCart}</button>
+        <p className={twMerge("font-semibold text-2xl")}>Price: ${price}</p>
+
+        <button
+          onClick={handleAddToCart}
+          className={twMerge("hover:scale-110")}
+        >
+          {IconAddCart(30)}
+        </button>
       </div>
     </div>
   );

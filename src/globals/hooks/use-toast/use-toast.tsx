@@ -22,7 +22,6 @@ export const useToast = () => {
 
   const showSuccess = useCallback(
     (message: ReactNode, options?: ToastProps) => {
-      console.log("a");
       return toast(message, {
         ...baseNotificationProps,
         type: "success",

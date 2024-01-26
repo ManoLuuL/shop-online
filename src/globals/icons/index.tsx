@@ -15,12 +15,13 @@ export const IconCart = (
   </svg>
 );
 
-export const IconAddCart = (
+export const IconAddCart = (size = 24) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     version="1.1"
-    className="w-6 h-6"
     viewBox="0 0 256 256"
+    width={size}
+    height={size}
   >
     <g
       style={{
