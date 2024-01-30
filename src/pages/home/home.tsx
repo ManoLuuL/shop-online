@@ -6,9 +6,11 @@ import { PRODUCTS_DESTACT } from "./const";
 import { Teste } from "../../assets";
 import { twMerge } from "tailwind-merge";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../../globals";
 
 export const Home = () => {
   const navigate = useNavigate();
+  const { showSuccess } = useToast();
 
   return (
     <div className={twMerge(" h-full")}>
@@ -79,7 +81,9 @@ export const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <form>
+              <form
+                onSubmit={() => showSuccess("Formulario enviado com sucesso")}
+              >
                 <div className="mb-4">
                   <label
                     htmlFor="nome"

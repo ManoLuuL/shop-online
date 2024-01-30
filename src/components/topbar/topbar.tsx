@@ -11,13 +11,14 @@ export const Topbar = () => {
       className={twMerge(
         "flex items-center overflow-hidden w-full h-14 overflow-x-auto overflow-y-auto z-[1]",
         "border-b-2 border-solid px-3 transition duration-200",
-        "border-gray-100 bg-blue-700"
+        "border-gray-100 bg-blue-700",
+        "grid grid-cols-12 gap-4"
       )}
     >
-      <div>
+      <div className={twMerge("col-span-2")}>
         <p className={twMerge("text-gray-50 text-xl font-bold")}>Shop</p>
       </div>
-      <div className={twMerge("flex justify-center")}>
+      <div className={twMerge("col-span-8 flex justify-center")}>
         <Link
           to={"/"}
           className={twMerge(
@@ -43,14 +44,14 @@ export const Topbar = () => {
           Contact
         </Link>
       </div>
-      <button className={twMerge("ml-auto relative flex")}>
+      <div className={twMerge("col-span-2 justify-end relative flex")}>
         {IconCart}
         {totalItems > 0 && (
           <div className="absolute -top-2 -right-1 bg-red-500 text-white rounded-full max-h-4 text-[10px] w-4 flex items-center justify-center">
             <span>{totalItems}</span>
           </div>
         )}
-      </button>
+      </div>
     </section>
   );
 };
