@@ -1,12 +1,16 @@
 import { Home, Products } from "../pages";
 import { Route, Routes } from "react-router-dom";
 
+import { Layout } from "../layout";
+
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/products" element={<Products />} />
-      {/* <Route path="/cart" element={<Cart />} /> */}
+      <Route Component={Layout}>
+        <Route path="/" Component={Home} />
+        <Route path="/products" Component={Products} />
+        {/* <Route path="/cart" element={<Cart />} /> */}
+      </Route>
     </Routes>
   );
 };

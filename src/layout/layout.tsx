@@ -1,30 +1,17 @@
-import { LayoutProps } from "./types";
-import { Topbar } from "../components";
-import { twMerge } from "tailwind-merge";
+import { Footer, Topbar } from "../components";
 
-export const Layout = (props: LayoutProps) => {
-  const { children } = props;
+import { Outlet } from "react-router-dom";
 
+export const Layout = () => {
   return (
-    <div
-      className={twMerge("w-screen h-screen grid")}
-      style={{
-        gridTemplateAreas: `'topbar'
-        'content'`,
-        gridTemplateRows: `65px 1fr`,
-        gridTemplateColumns: "1fr",
-      }}
-    >
+    <div className="flex flex-col min-h-screen">
       <Topbar />
 
-      <main
-        className="overflow-x-hidden overflow-y-auto bg-gray-100 block w-full transition duration-200 text-gray-700"
-        style={{
-          gridArea: "content",
-        }}
-      >
-        {children}
+      <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 transition duration-200 text-gray-700">
+        <Outlet />
       </main>
+
+      <Footer />
     </div>
   );
 };

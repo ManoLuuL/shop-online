@@ -5,7 +5,14 @@ import { twMerge } from "tailwind-merge";
 import { useCart } from "../../globals/hooks/use-cart-context";
 
 export const CardProduct = (props: CardProductProps) => {
-  const { description, price, src, title, onClickViewMore } = props;
+  const {
+    description,
+    price,
+    src,
+    title,
+    onClickViewMore,
+    isAnimated = true,
+  } = props;
 
   const { addToCart } = useCart();
 
@@ -18,7 +25,12 @@ export const CardProduct = (props: CardProductProps) => {
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden bg-slate-50 hover:scale-110 transition duration-200">
+    <div
+      className={twMerge(
+        "w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden bg-slate-50",
+        isAnimated && "hover:scale-110 transition duration-200"
+      )}
+    >
       <div
         className="flex items-end justify-end h-56 w-full bg-cover"
         style={{

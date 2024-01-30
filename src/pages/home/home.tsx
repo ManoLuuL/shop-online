@@ -1,3 +1,5 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import { CardProduct } from "../../components";
 import { CustomerReviews } from "./components";
 import { PRODUCTS_DESTACT } from "./const";
@@ -7,16 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const navigate = useNavigate();
-
-  const ProductsCard = PRODUCTS_DESTACT.map((items) => {
-    return (
-      <CardProduct
-        {...items}
-        key={items.id}
-        onClickViewMore={() => navigate("/products")}
-      />
-    );
-  });
 
   return (
     <div className={twMerge(" h-full")}>
@@ -60,23 +52,27 @@ export const Home = () => {
           <h2 className={twMerge("text-2xl font-semibold mb-6")}>
             Featured Products
           </h2>
+          <Swiper slidesPerView={3} pagination={{ clickable: true }} navigation>
+            {PRODUCTS_DESTACT.map((items) => (
+              <SwiperSlide key={items.id}>
+                <CardProduct
+                  {...items}
+                  isAnimated={false}
+                  onClickViewMore={() => navigate("/products")}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
           <div className="flex justify-center items-center">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-[90%]">
+            {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-[90%]">
               {ProductsCard}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       <CustomerReviews />
-      {/* <section className={twMerge("p-6 bg-blue-300")}>
-        <h2
-          className={twMerge("text-2xl font-semibold mb-6 flex justify-center")}
-        >
-          Contact
-        </h2>
-        <div>bla bla bla</div>
-      </section> */}
+
       <section className="p-6 bg-blue-300">
         <div className="container mx-auto">
           <h2 className="text-3xl font-semibold mb-8">Entre em Contato</h2>

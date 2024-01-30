@@ -9,4 +9,5 @@ export type ProductsDTO = {
 };
 export type CardProductProps = ProductsDTO & {
   onClickViewMore(): void;
+  isAnimated?: boolean;
 };
